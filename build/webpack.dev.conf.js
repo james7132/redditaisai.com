@@ -57,8 +57,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),
+    new HtmlWebpackPlugin({
+      filename: '404.html',
+      template: '404.html',
+      inject: true
+    }),
     // copy custom static assets
     new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../404.html'),
+        to: '',
+      },
       {
         from: path.resolve(__dirname, '../static'),
         to: config.dev.assetsSubDirectory,
